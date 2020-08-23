@@ -1,0 +1,331 @@
+{% extends "base.html" %}
+{% load static %}
+{% block page_content %}
+<link href='https://fonts.googleapis.com/css?family=Karla' rel='stylesheet'>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.min.js"></script>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+<script src="/home/cyberpunk/parallax.js-1.5.0/parallax.js"></script>
+
+
+<body >
+
+
+<h1 style="position:absolute; top:18vw; left:7vw; font-size:3vw; color:white; font-family:Karla;">Hey, I'm Sanyog.</h1>
+<p style="position:absolute; top:23vw; left:7vw; font-size:1.5vw; color:white; font-family:Karla;">I'm a Freelance Graphic Designer based in Pune.</p>
+<p style="position:absolute; top:25vw; left:7vw; font-size:1.5vw; color:white; font-family:Karla;">I'm currently focusing on developing various kinds of illustrations for</p>
+
+<p style="position:absolute; top:27vw; left:7vw; font-size:1.5vw; color:white; font-family:Karla;">different kinds of people. I also love working with others who are</p>
+<p style="position:absolute; top:29vw; left:7vw; font-size:1.5vw; color:white; font-family:Karla;"> passionate about what they do. This portfolio includes all the artworks</p>
+
+<p style="position:absolute; top:31vw; left:7vw; font-size:1.5vw; color:white; font-family:Karla;"> I made for different people along with it, there is also a section for </p>
+
+<p style="position:absolute; top:33vw; left:7vw; font-size:1.5vw; color:white; font-family:Karla;">Humans of Lockdown where different people tell their stories.</p>
+<p style="position:absolute; top:35vw; left:7vw; font-size:1.5vw; color:white; font-family:Karla;"> Hope you guys like it!</p>
+
+
+<img src="{% static 'img/text820.png' %}" style="width:30%; position: relative; top:2vw; left:36vw;">
+
+<img src="{% static 'img/image10.png'%}" style="width:5%; position: relative; top:10vw; left:17vw" class="arrow-down">
+
+
+
+
+<img src="{% static 'img/sanyog.jpg'%}" style="width:25%; position:relative; top:20vw; left:33vw;" class="sanyog">
+
+<marquee scrollamount="30"
+direction="right"
+behavior="scroll">
+<pre style="padding-left:110px; padding-top:40vw; font-size:8vw; color:white; font-family:Karla;" class="m19">Illustrations</pre>
+</marquee>
+
+
+
+<div class="row" style="padding:4.5vw; padding-top:1vw;">
+{% for project in projects %}
+    <div class="col-md-4" style="padding:3vw;">
+        <div class="card mb-2" style="padding:1vw; border:0.3vw solid; border-color:white; border-radius:1vw;">
+            <img class="card-img-top" src="{% static project.image %}">
+            <div class="card-body" style="padding:1vw;">
+                <h5 class="card-title" style="font-size:2vw; color:black; font-family:Karla;">{{ project.title }}</h5>
+                <p class="card-text" style="color:black; font-family:Karla; font-size:1vw;">{{ project.description }}</p>
+                <a href="{% url 'project_detail' project.pk %}"
+                   class="btn btn-primary" style="background-color:#060c21; color:white; border-radius:1vw; font-family:Karla;">
+                    Read More
+                </a>
+            </div>
+        </div>
+    </div>	
+ {% endfor %}
+</div>
+
+<style>
+
+
+
+.arrow-down {
+
+	animation:example 1.5s infinite;
+}
+
+@keyframes example {
+
+	0% {
+		top:40vw;
+	}
+	50% {
+
+		top:38vw;
+	}
+	100% {
+		top:40vw;
+	}
+}
+
+
+.card-img-top {
+
+	box-shadow:
+  0 2.8px 2.2px rgba(0, 0, 0, 0.034),
+  0 6.7px 5.3px rgba(0, 0, 0, 0.048),
+  0 12.5px 10px rgba(0, 0, 0, 0.06),
+  0 22.3px 17.9px rgba(0, 0, 0, 0.072),
+  0 41.8px 33.4px rgba(0, 0, 0, 0.086),
+  0 100px 80px rgba(0, 0, 0, 0.12);
+}
+
+.card {
+
+	
+	transition: transform .2s;
+	
+;
+}
+.card:hover {
+
+	transform: scale(1.05);
+}
+
+.sanyog {
+	
+	box-shadow:
+  0 2.8px 2.2px rgba(0, 0, 0, 0.034),
+  0 6.7px 5.3px rgba(0, 0, 0, 0.048),
+  0 12.5px 10px rgba(0, 0, 0, 0.06),
+  0 22.3px 17.9px rgba(0, 0, 0, 0.072),
+  0 41.8px 33.4px rgba(0, 0, 0, 0.086),
+  0 100px 80px rgba(0, 0, 0, 0.12)
+;
+	
+	transition: transform .2s;
+}
+
+.sanyog:hover {
+
+	transform: scale(1.2);
+}
+
+.insta {
+
+	transition: transform .2s;
+}
+
+.insta:hover {
+
+	transform: scale(1.3);
+}
+
+.behance {
+
+	transition: transform .2s;
+}
+
+.behance:hover {
+
+	transform: scale(1.3);
+}
+
+.pinterest {
+
+	transition: transform .2s;
+}
+
+.pinterest:hover {
+
+	transform: scale(1.3);
+}
+
+.linkedin {
+
+	transition: transform .2s;
+}
+
+.linkedin:hover {
+
+	transform: scale(1.3);
+}
+
+.btn {
+
+	margin: 1.5vw 0 0;
+	padding: 0.5vw 1vw;
+	text-decoration: none;
+	border: 0.1vw solid #060c21;
+	display: inline-block;
+	color: #fff;
+	transition: 0.5s;
+	transform: translateY(-2vw);
+	opacity: 0;
+	visibility: hidden;
+}
+
+.card:hover .btn {
+
+	transform: translateY(0.3vw);
+	opacity: 1;
+	visibility: visible;
+
+}
+
+.m19 {
+
+	-webkit-text-fill-color: transparent;
+    -webkit-text-stroke-width: 0.2vw;
+    -webkit-text-stroke-color: white;
+	
+
+
+	overflow: hidden; 
+    animation: animate 2s linear forwards;
+
+
+}
+
+
+
+.ml11 {
+	font-family: 'Karla';
+	-webkit-text-fill-color: transparent;
+    -webkit-text-stroke-width: 0.15vw;
+    -webkit-text-stroke-color: white;
+	
+
+  font-weight: 400;
+  font-size: 5vw;
+	color: white;
+}
+
+.ml11 .text-wrapper {
+  position: relative;
+  display: inline-block;
+  padding-top: 3vw;
+  padding-left: 8vw;
+  padding-bottom: 7vw;
+}
+
+.ml11 .line {
+  opacity: 0;
+  position: absolute;
+  left: 0;
+  height: 40%;
+  width: 0.2vw;
+  background-color: #fff;
+  transform-origin: 0 50%;
+}
+
+.ml11 .line1 { 
+  top: 3vw; 
+  left: 8vw;
+}
+
+.ml11 .letter {
+  display: inline-block;
+  line-height: 5vw;
+}
+
+</style>
+
+<section class="container" style="top:75vw; background:#060c21; max-width:100vw; height:28vw;">
+
+
+
+
+<h1 class="ml11">
+  <span class="text-wrapper">
+    <span class="line line1"></span>
+    <span class="letters">Thank You for Visiting My Website</span>
+  </span>
+</h1>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.min.js"></script>
+
+
+
+<h1 style="position:relative; padding-left:5.5vw; font-size:1.6vw; top:-2vw; color:white; font-family:Karla;">Social :</h1>
+
+
+
+<a href="https://www.instagram.com/sanyog.chavhan/">
+<img src="{% static 'img/instagram.png'%}" style="width:2.5vw; position:relative; top:-0.5vw; left:5.5vw;" class="insta">
+</a>
+
+<a href="https://www.behance.net/sanyogchavhan">
+<img src="{% static 'img/behance-256.png'%}" style="width:2.5vw; position:relative; top:-0.5vw; left:7.5vw;" class="behance">
+</a>
+
+<a href="https://in.pinterest.com/sanyogchavhan/">
+<img src="{% static 'img/pinterest-5-256.png'%}" style="width:2.5vw; position:relative; top:-0.5vw; left:9.5vw;" class="pinterest">
+</a>
+
+<a href="https://www.linkedin.com/in/sanyog-chavhan-515525149/">
+<img src="{% static 'img/linkedin-3-256.png'%}" style="width:2.5vw; position:relative; top:-0.5vw; left:11.5vw;" class="linkedin">
+</a>
+
+
+<h1 style="position:relative; padding-left:68.3vw; font-size:1.6vw; top:-6.7vw; color:white; font-family:Karla;">Contact :</h1>
+
+<a href = "mailto: sanyogchavhan2016@gmail.com" style="position:relative; left:68.3vw; font-size:1.5vw; top:-4.9vw; color:white; font-family:Karla;">sanyogchavhan2016@gmail.com</a>
+
+</section>
+<script>
+var textWrapper = document.querySelector('.ml11 .letters');
+textWrapper.innerHTML = textWrapper.textContent.replace(/([^\x00-\x80]|\w)/g, "<span class='letter'>$&</span>");
+
+anime.timeline({loop: true})
+  .add({
+    targets: '.ml11 .line',
+    scaleY: [0,1],
+    opacity: [0.5,1],
+    easing: "easeOutExpo",
+    duration: 700
+  })
+  .add({
+    targets: '.ml11 .line',
+    translateX: [0, document.querySelector('.ml11 .letters').getBoundingClientRect().width + 10],
+    easing: "easeOutExpo",
+    duration: 700,
+    delay: 100
+  }).add({
+    targets: '.ml11 .letter',
+    opacity: [0,1],
+    easing: "easeOutExpo",
+    duration: 600,
+    offset: '-=775',
+    delay: (el, i) => 34 * (i+1)
+  }).add({
+    targets: '.ml11',
+    opacity: 0,
+    duration: 1000,
+    easing: "easeOutExpo",
+    delay: 1000
+  });
+
+</script>
+
+
+
+</body>
+
+
+
+{% endblock %}

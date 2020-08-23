@@ -1,0 +1,209 @@
+{% extends "base.html" %}
+{% load static %}
+{% block page_content %}
+
+<link rel="stylesheet" href="https://unpkg.com/aos@2.3.0/dist/aos.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+<script src="https://unpkg.com/aos@2.3.0/dist/aos.js"></script>
+
+
+
+<link href='https://fonts.googleapis.com/css?family=Karla' rel='stylesheet'>
+<body style="background-color:#060c21;">
+<div class="whole">
+<marquee scrollamount="30"
+direction="right"
+behavior="scroll">
+<h1 style="padding-left:0vw; padding-top:7vw; font-family:Karla;	 font-size:8vw; color:white;" class="main1">Humans of Lockdown</h1>
+</marquee>
+<div class="row" style="padding:4.5vw; padding-top:1vw;">
+{% for series in series %}
+	<div class="col-md-4" style="padding:3vw;">
+        <div class="card mb-2" data-aos="slide-up" style="padding:1vw; background-color:; border:0.3vw solid; border-color:white; border-radius:1vw;">
+            <img class="card-img-top" src="{% static series.image %}">
+            <div class="card-body" style="padding:1vw;">
+                <h5 class="card-title" style="font-family:Karla; font-size:2vw; color:black;">{{ series.title }}</h5>
+                
+                <a href="{% url 'series_detail' series.pk %}"
+                   class="btn btn-primary" style="font-family:Karla; background-color:#060c21; color:white; border-radius:1vw;">
+                    Read Their Story
+                </a>
+            </div>
+        </div>
+    </div>
+{% endfor %}
+</div>
+
+
+
+
+
+<style>
+
+body {
+
+	margin: 0;
+	padding: 0;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+
+
+.card-img-top {
+
+	box-shadow:
+  0 2.8px 2.2px rgba(0, 0, 0, 0.034),
+  0 6.7px 5.3px rgba(0, 0, 0, 0.048),
+  0 12.5px 10px rgba(0, 0, 0, 0.06),
+  0 22.3px 17.9px rgba(0, 0, 0, 0.072),
+  0 41.8px 33.4px rgba(0, 0, 0, 0.086),
+  0 100px 80px rgba(0, 0, 0, 0.12)
+;
+}
+
+.card {
+
+	transition: all ease-in 2s;
+	transition: transform .2s;
+	
+;
+}
+
+
+
+
+
+.btn {
+	margin: 1.5vw 0 0;
+	padding: 0.5vw 1vw;
+	text-decoration: none;
+	border: 0.1vw solid #fff;
+	display: inline-block;
+	color: #fff;
+	transition: 0.5s;
+	transform: translateY(-2vw);
+	opacity: 0;
+	visibility: hidden;
+}
+
+.card:hover .btn {
+
+	transform: translateY(0.3vw);
+	opacity: 1;
+	visibility: visible;
+
+}
+
+.card-mb-2 {
+
+	width: 100%;
+	height: auto;
+}
+
+.main1 {
+-webkit-text-fill-color: transparent;
+    -webkit-text-stroke-width: 0.2vw;
+    -webkit-text-stroke-color: white;
+	
+	
+}
+
+.ml11 {
+	font-family: 'Karla';
+	
+	text-shadow:		
+		 0.1vw 0.1vw #000000;
+  font-weight: 400;
+  font-size: 2vw;
+	color: white;
+}
+
+.ml11 .text-wrapper {
+  position: relative;
+  display: inline-block;
+  padding-top: 3.7vw;
+  padding-left: 17vw;
+  padding-bottom: 7vw;
+}
+
+.ml11 .line {
+  opacity: 0;
+  position: absolute;
+  left: 0;
+  height: 40%;
+  width: 0.2vw;
+  background-color: #fff;
+  transform-origin: 0 50%;
+}
+
+.ml11 .line1 { 
+  top: 3vw; 
+  left: 17vw;
+}
+
+.ml11 .letter {
+  display: inline-block;
+  line-height: 5vw;
+}
+
+</style>
+  <h1 class="ml11">
+  <span class="text-wrapper">
+    <span class="line line1"></span>
+    <span class="letters">The Flaws of the universe become an opportunity for the greatest</span>
+  </span>
+</h1>
+
+<h1 style="position:relative; font-family:Karla; font-size:2vw; padding-left:39vw;top: -5vw; color: white;">- Apoorv Bedmutha</h1>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.min.js"></script>
+
+<script>
+var textWrapper = document.querySelector('.ml11 .letters');
+textWrapper.innerHTML = textWrapper.textContent.replace(/([^\x00-\x80]|\w)/g, "<span class='letter'>$&</span>");
+
+anime.timeline({loop: true})
+  .add({
+    targets: '.ml11 .line',
+    scaleY: [0,1],
+    opacity: [0.5,1],
+    easing: "easeOutExpo",
+    duration: 700
+  })
+  .add({
+    targets: '.ml11 .line',
+    translateX: [0, document.querySelector('.ml11 .letters').getBoundingClientRect().width + 10],
+    easing: "easeOutExpo",
+    duration: 700,
+    delay: 100
+  }).add({
+    targets: '.ml11 .letter',
+    opacity: [0,1],
+    easing: "easeOutExpo",
+    duration: 600,
+    offset: '-=775',
+    delay: (el, i) => 34 * (i+1)
+  }).add({
+    targets: '.ml11',
+    opacity: 0,
+    duration: 1000,
+    easing: "easeOutExpo",
+    delay: 1000
+  });
+
+</script>
+
+
+<script>
+AOS.init({
+	duration: 1200,
+})
+
+</script>
+
+</body>
+
+
+{% endblock %}
